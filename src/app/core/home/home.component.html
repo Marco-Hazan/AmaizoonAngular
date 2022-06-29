@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+    <div class="row p-3 align-items-center">
+        <div class = "col-3">
+            <img src="assets/images/amazon.png" class="w-25" alt="logo">
+        </div>
+        <div class="col-6 text-center font">
+            <a style="font-size:38px" class="navbar-brand" href="index.html"> Amaizoon</a>
+        </div>
+    </div>
+    <div class="row bg-primary text-white justify-content-center align-items-center">
+        <div class="col-6"> 
+            <a class ="btn btn-sm btn-danger m-2" href="login.jsp">Login</a>
+            <a class ="btn btn-sm btn-primary m-2" href="ProdottoListController">Lista Prodotti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="UtenteControllerList">Lista Utenti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="index.html">Lista ordini </a>
+            <a class ="btn btn-sm btn-primary m-2" href="prodotto-form.html">Crea prodotto </a>
+        </div>
+        <div class="col-6 text-right">        
+            <app-riepilogo-carrello></app-riepilogo-carrello>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-3 p-2">
+            <button (click) = "categoriaSelezionata = ''" class="btn btn-block btn-sm btn-outline-success">Tutte le categorie</button>
+            <button *ngFor="let c of categorie" class="btn btn-block btn-sm btn-warning" [class.active] = "categoriaSelezionata == c"
+            (click) = "categoriaSelezionata = c">{{c}}</button>
+        </div>
+        <div class="col-8 m-1 p-1">
+            <div *ngFor="let p of prodotti" class="card m-1 p-1 bg-info">
+                <h4>
+                    <span class="badge badge-pill float-left">
+                        {{p.nome}}
+                    </span>
+                    <span class="badge badge-pill badge-primary float-left bg-dark">
+                        {{p.categoria}}
+                    </span>
+                    <span class="badge badge-pill badge-primary float-right">
+                        {{p.prezzo}}€
+                    </span>
+                </h4>
+                <div class="card-text bg-white-p1 mb-3">
+                    {{p.descrizione}}
+                    <button class="btn btn-success float-right" (click) = "addProdottoAlCarrello(p)">Aggiungi al carrello</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
