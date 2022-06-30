@@ -6,7 +6,8 @@ import { RiepilogoCarrelloComponent } from './riepilogo-carrello/riepilogo-carre
 import { DettaglioCarrelloComponent } from './dettaglio-carrello/dettaglio-carrello.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutReactiveComponent } from './checkout-reactive/checkout-reactive.component';
 
 
 
@@ -15,13 +16,15 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     RiepilogoCarrelloComponent,
     DettaglioCarrelloComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CheckoutReactiveComponent
   ],
   imports: [
     CommonModule,
     ModelModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   //exports dice quali componenti saranno disponibili per i moduli che importano questo modulo
   exports: [HomeComponent]

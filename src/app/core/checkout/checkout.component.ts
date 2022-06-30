@@ -12,7 +12,7 @@ export class CheckoutComponent implements OnInit {
 
   spedito:boolean = false;
 
-  constructor(public ordine: OrdineService , private ordineRepo: OrdineRepositoryService) { }
+  constructor(public ordine: OrdineService ,private ordineRepo: OrdineRepositoryService) { }
 
   ngOnInit(): void {
   }
