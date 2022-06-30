@@ -19,11 +19,11 @@ export class RiepilogoCarrelloComponent implements OnInit {
   }
 
   get totProdotti(){
-    return this.carrello.totProdotti;
+    return this.carrello.totaleProdotti;
   }
 
   get totItems(){
-    return this.carrello.totItems;
+    return this.carrello.totaleArticoli;
   }
 
   ngOnInit(): void {

@@ -1,1 +1,62 @@
-<p>checkout works!</p>
+<div class="container-fluid">
+    <div class="row p-3 align-items-center">
+        <div class = "col-3">
+            <img src="assets/images/amazon.png" class="w-25" alt="logo">
+        </div>
+        <div class="col-6 text-center font">
+            <a style="font-size:38px" class="navbar-brand" href="index.html"> Amaizoon</a>
+        </div>
+    </div>
+    <div class="row bg-primary text-white align-items-center">
+        <div class="col-6"> 
+            <a class ="btn btn-sm btn-danger m-2" href="login.jsp">Login</a>
+            <a class ="btn btn-sm btn-primary m-2" href="ProdottoListController">Lista Prodotti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="UtenteControllerList">Lista Utenti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="index.html">Lista ordini </a>
+            <a class ="btn btn-sm btn-primary m-2" href="prodotto-form.html">Crea prodotto </a>
+        </div>
+    </div>
+</div>
+<h2 class="text-center m-4">Checkout:</h2>
+<div class="container">
+    <div class="row justify-content-center" *ngIf="!spedito">
+        <div class="col-6 ">
+            {{ordine | json}}
+            <form action="" (ngSubmit)="inviaOrdine(formOrdine)" #formOrdine = "ngForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" #nomeRef = "ngModel" [(ngModel)] = "ordine.nome"
+                    minlength="2" pattern = "^[A-Za-z ]+$" required
+                    id = "nome" name = "nome" placeholder="Inserisci il tuo nome...">
+                </div>
+                <ul class="text-danger" *ngIf="nomeRef.dirty && nomeRef.invalid">
+                    <li *ngIf="nomeRef.errors?.['required']">Il nome è obbligatorio</li>
+                    <li *ngIf="nomeRef.errors?.['minlength']">Lunghezza minima 2</li>
+                    <li *ngIf="nomeRef.errors?.['pattern']">Pattern non rispettato</li>
+                </ul>
+                <div class="form-group">
+                    <label for="cognome">Cognome:</label>
+                    <input type="text" class="form-control" id = "cognome" name = "cognome" placeholder="Inserisci il tuo cognome...">
+                </div>
+                <div class="form-group">
+                    <label for="citta">Città:</label>
+                    <input type="text" class="form-control" id = "citta" name = "citta" placeholder="Inserisci la tua città...">
+                </div>
+                <div class="form-group">
+                    <label for="indirizzo">Indirizzo:</label>
+                    <input type="text" class="form-control" id = "indirizzo" name = "indirizzo" placeholder="Inserisci il tuo indirizzo...">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">SPEDISCI ORDINI</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="spedito">
+        <div class="col m-2">
+            <h4>Grazie mille del suo ordine che ha id = 457, spediremo i suoi articoli al più presto</h4>
+        </div>
+    </div>
+    
+</div>
+

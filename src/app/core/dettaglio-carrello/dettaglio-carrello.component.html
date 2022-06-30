@@ -1,2 +1,56 @@
-<p>dettaglio-carrello works!</p>
-{{carrello.totale}}
+
+<div class="container-fluid">
+    <div class="row p-3 align-items-center">
+        <div class = "col-3">
+            <img src="assets/images/amazon.png" class="w-25" alt="logo">
+        </div>
+        <div class="col-6 text-center font">
+            <a style="font-size:38px" class="navbar-brand" href="index.html"> Amaizoon</a>
+        </div>
+    </div>
+    <div class="row bg-primary text-white align-items-center">
+        <div class="col-6"> 
+            <a class ="btn btn-sm btn-danger m-2" href="login.jsp">Login</a>
+            <a class ="btn btn-sm btn-primary m-2" href="ProdottoListController">Lista Prodotti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="UtenteControllerList">Lista Utenti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="index.html">Lista ordini </a>
+            <a class ="btn btn-sm btn-primary m-2" href="prodotto-form.html">Crea prodotto </a>
+        </div>
+    </div>
+    <h2 class="text-center m-4 text-success">Il tuo carrello</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Quantita</th>
+                <th>Prodotto</th>
+                <th>Prezzo</th>
+                <th>Subtotale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of getAllItems()">
+                <td><input type="text" class="text-center" [value]="item.quantita" (input) = "aggiornaCarrello(item,quantita.value)" #quantita></td>
+                <td>{{item.prodotto.nome}}</td>
+                <td>{{item.prodotto.prezzo}}€</td>
+                <td>{{item.totale}}€</td>
+                <td><button class="btn btn-danger" (click) = "remove(item)">Rimuovi  </button></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-right">Totale:</td>
+                <td>{{getTotaleCarrello()}}€</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <div class="row text-center">
+        <div class="col text-right">
+            <button routerLink = "/home" class="btn btn-secondary">Continua shopping</button>
+        </div>
+        <div class="col text-left">
+            <button routerLink = "/checkout" class="btn btn-primary">Checkout</button>
+        </div>
+        
+       
+    </div>
+
+</div>

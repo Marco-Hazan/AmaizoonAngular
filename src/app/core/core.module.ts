@@ -6,6 +6,7 @@ import { RiepilogoCarrelloComponent } from './riepilogo-carrello/riepilogo-carre
 import { DettaglioCarrelloComponent } from './dettaglio-carrello/dettaglio-carrello.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ModelModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   //exports dice quali componenti saranno disponibili per i moduli che importano questo modulo
   exports: [HomeComponent]

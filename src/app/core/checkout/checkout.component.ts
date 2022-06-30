@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { OrdineService } from 'src/app/model/ordine.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  spedito:boolean = false;
+
+  constructor(public ordine: OrdineService) { }
 
   ngOnInit(): void {
   }
+
+  inviaOrdine(formOrdine:NgForm){
+    this.spedito = true;
+  }
+
+
 
 }
