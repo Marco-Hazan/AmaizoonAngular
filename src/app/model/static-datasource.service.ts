@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ModelModule } from './model.module';
+import { OrdineService } from './ordine.service';
 import { Prodotto } from './prodotto';
 
 @Injectable()
@@ -31,6 +32,10 @@ export class StaticDatasourceService {
 
   get Prodotti():Prodotto[]{
     return this.prodotti;
+  }
+
+  salvaOrdine(ordine: OrdineService){
+    console.log(JSON.stringify(ordine));
   }
 
   constructor() { }

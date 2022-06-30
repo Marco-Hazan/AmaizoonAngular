@@ -10,6 +10,14 @@ export class OrdineService {
   indirizzo:string = '';
 
 
+  reset(){
+    this.nome = '';
+    this.cognome = '';
+    this.citta = '';
+    this.indirizzo = '';
+    this.carrello.clear();
+  }
+
   constructor(private carrello: CarrelloService) { }
 
    

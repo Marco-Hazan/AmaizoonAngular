@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { OrdineRepositoryService } from 'src/app/model/ordine-repository.service';
 import { OrdineService } from 'src/app/model/ordine.service';
 
 @Component({
@@ -11,13 +12,17 @@ export class CheckoutComponent implements OnInit {
 
   spedito:boolean = false;
 
-  constructor(public ordine: OrdineService) { }
+  constructor(public ordine: OrdineService , private ordineRepo: OrdineRepositoryService) { }
 
   ngOnInit(): void {
   }
 
   inviaOrdine(formOrdine:NgForm){
-    this.spedito = true;
+    if(formOrdine.valid){
+      this.ordineRepo.save(this.ordine);
+      this.ordine.reset();
+      this.spedito = true;
+    }
   }
 
 

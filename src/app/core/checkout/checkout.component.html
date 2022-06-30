@@ -23,31 +23,38 @@
         <div class="col-6 ">
             {{ordine | json}}
             <form action="" (ngSubmit)="inviaOrdine(formOrdine)" #formOrdine = "ngForm">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" class="form-control" #nomeRef = "ngModel" [(ngModel)] = "ordine.nome"
-                    minlength="2" pattern = "^[A-Za-z ]+$" required
-                    id = "nome" name = "nome" placeholder="Inserisci il tuo nome...">
-                </div>
-                <ul class="text-danger" *ngIf="nomeRef.dirty && nomeRef.invalid">
-                    <li *ngIf="nomeRef.errors?.['required']">Il nome è obbligatorio</li>
-                    <li *ngIf="nomeRef.errors?.['minlength']">Lunghezza minima 2</li>
-                    <li *ngIf="nomeRef.errors?.['pattern']">Pattern non rispettato</li>
-                </ul>
-                <div class="form-group">
-                    <label for="cognome">Cognome:</label>
-                    <input type="text" class="form-control" id = "cognome" name = "cognome" placeholder="Inserisci il tuo cognome...">
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control" #nomeRef = "ngModel" [(ngModel)] = "ordine.nome"
+                            minlength="2" pattern = "^[A-Za-z ]+$" required
+                            id = "nome" name = "nome" placeholder="Inserisci il tuo nome...">
+                        </div>
+                        <ul class="text-danger" *ngIf="nomeRef.dirty && nomeRef.invalid">
+                            <li *ngIf="nomeRef.errors?.['required']">Il nome è obbligatorio</li>
+                            <li *ngIf="nomeRef.errors?.['minlength']">Lunghezza minima 2</li>
+                            <li *ngIf="nomeRef.errors?.['pattern']">Pattern non rispettato</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="cognome">Cognome:</label>
+                            <input type="text" class="form-control" [(ngModel)] = "ordine.cognome" id = "cognome" name = "cognome" placeholder="Inserisci il tuo cognome...">
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="citta">Città:</label>
-                    <input type="text" class="form-control" id = "citta" name = "citta" placeholder="Inserisci la tua città...">
+                    <input type="text" class="form-control" [(ngModel)] = "ordine.citta" id = "citta" name = "citta" placeholder="Inserisci la tua città...">
                 </div>
                 <div class="form-group">
                     <label for="indirizzo">Indirizzo:</label>
-                    <input type="text" class="form-control" id = "indirizzo" name = "indirizzo" placeholder="Inserisci il tuo indirizzo...">
+                    <input type="text" class="form-control" id = "indirizzo" [(ngModel)] = "ordine.indirizzo" name = "indirizzo" placeholder="Inserisci il tuo indirizzo...">
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success">SPEDISCI ORDINI</button>
+                    <button routerLink= "/dettaglio-carrello" class="btn btn-secondary m-2">TORNA AL CARRELLO</button>
+                    <button  type="submit" class="btn btn-success">SPEDISCI ORDINI</button>
                 </div>
             </form>
         </div>
