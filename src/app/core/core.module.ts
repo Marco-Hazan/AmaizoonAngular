@@ -8,6 +8,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutReactiveComponent } from './checkout-reactive/checkout-reactive.component';
+import { AmministrazioneModule } from '../amministrazione/amministrazione.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -17,7 +19,8 @@ import { CheckoutReactiveComponent } from './checkout-reactive/checkout-reactive
     RiepilogoCarrelloComponent,
     DettaglioCarrelloComponent,
     CheckoutComponent,
-    CheckoutReactiveComponent
+    CheckoutReactiveComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

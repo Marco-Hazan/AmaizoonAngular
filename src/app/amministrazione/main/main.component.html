@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row p-3 align-items-center">
+        <div class = "col-3">
+            <img src="assets/images/amazon.png" class="w-25" alt="logo">
+        </div>
+        <div class="col-6 text-center font">
+            <a style="font-size:38px" class="navbar-brand" href="index.html"> Amaizoon</a>
+        </div>
+    </div>
+    <div class="row bg-primary text-white justify-content-center align-items-center">
+        <div class="col"> 
+            <a class ="btn btn-sm btn-danger m-2" routerLink="/amministrazione">Login</a>
+            <a class ="btn btn-sm btn-primary m-2" href="ProdottoListController">Lista Prodotti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="UtenteControllerList">Lista Utenti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="index.html">Lista ordini </a>
+            <a class ="btn btn-sm btn-primary m-2" href="prodotto-form.html">Crea prodotto </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 m-2">
+        <button class="btn btn-outline-primary btn-block" routerLink="gestione-ordini">Gestione ordini</button>
+        <button class="btn btn-outline-primary btn-block" routerLink="gestione-prodotti">Gestione Prodotti</button>
+    </div>
+    <div class="col-7 m-2">
+        <router-outlet></router-outlet>
+    </div>
+</div>

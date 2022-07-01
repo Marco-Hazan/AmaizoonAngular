@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row p-3 align-items-center">
+        <div class = "col-3">
+            <img src="assets/images/amazon.png" class="w-25" alt="logo">
+        </div>
+        <div class="col-6 text-center font">
+            <a style="font-size:38px" class="navbar-brand" href="index.html"> Amaizoon</a>
+        </div>
+    </div>
+    <div class="row bg-primary text-white justify-content-center align-items-center">
+        <div class="col"> 
+            <a class ="btn btn-sm btn-danger m-2" routerLink="/login">Login</a>
+            <a class ="btn btn-sm btn-primary m-2" href="ProdottoListController">Lista Prodotti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="UtenteControllerList">Lista Utenti</a>
+            <a class ="btn btn-sm btn-primary m-2" href="index.html">Lista ordini </a>
+            <a class ="btn btn-sm btn-primary m-2" href="prodotto-form.html">Crea prodotto </a>
+        </div>
+    </div>
+    <h2 class="m-4 text-center">Login:</h2>
+    
+    <div *ngIf="!loggato" class="row justify-content-center">
+        <div class="col-4">
+            <form action="" (ngSubmit)="login()" [formGroup]="formLogin" autocomplete="off">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" type="text" id="username" formControlName="username">
+                </div>
+                <ul class="text-danger" *ngIf="(username?.touched  || username?.dirty) && username?.invalid">
+                    <li *ngIf="username?.errors?.['required']">Lo username è obbligatorio</li>
+                </ul>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" id="password" formControlName="password">
+                </div>
+                <ul class="text-danger" *ngIf="(password?.touched  || password?.dirty) && password?.invalid">
+                    <li *ngIf="password?.errors?.['required']">La password è obbligatoria</li>
+                </ul>
+                <div class="form-group text-center">
+                    <button type = "submit" class="btn btn-success">Loggati</button>
+                </div>
+                <div class="text-danger text-center">{{erroreLogin}}</div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="loggato" class="row text-center justify-content-center text-success">
+        <div class="col">
+                <h3 class="text-center">Complimenti, {{username?.value}}, ti sei loggato!</h3>
+                <button class="btn btn-secondary m-3" (click) = "loggato = false">Indietro</button>
+        </div>
+    </div>
+</div>
