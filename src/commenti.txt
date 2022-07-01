@@ -1,0 +1,8 @@
+1) Riscritti i metodi salvaOrdine e getProdotti del StaticDataSource in RestDataSource,
+così basta scrivere nei costruttori dei vari repository invece di StaticDataSource, RestDataSource.
+2) Utilizzati i metodi http.get e http.post k per inviare dati 
+e e utilizzano le funzioni di callback per ricevere risposta in modo asincrono (simile alla normale fetch di javascript).
+3)Aggiunto id a ordineservice
+4)La funzione subscribe, che è quella che di fatto restituisce i dati la fanno chi ha bisogno di gestire i dati ritornati,
+se la fa direttamente restdatasource dentro la funzione di callback non posso gestire i dati in modo da modificare la view.
+

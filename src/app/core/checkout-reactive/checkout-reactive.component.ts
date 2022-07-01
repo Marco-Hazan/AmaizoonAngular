@@ -12,6 +12,8 @@ export class CheckoutReactiveComponent implements OnInit {
 
   spedito:boolean = false;
 
+  idOrdineInserito:number = 0;
+
   formOrdine: FormGroup;
 
   constructor(public ordine: OrdineService , private ordineRepo: OrdineRepositoryService) { 
@@ -48,9 +50,17 @@ export class CheckoutReactiveComponent implements OnInit {
       this.ordine.cognome = this.cognome?.value;
       this.ordine.citta = this.citta?.value;
       this.ordine.indirizzo = this.indirizzo?.value;
-      this.ordineRepo.save(this.ordine);
-      this.ordine.reset();
-      this.spedito = true;
+      // gestisco qui la callback così posso settare i vari campi
+      this.ordineRepo.save(this.ordine)
+        .subscribe(
+          dato => {
+            this.idOrdineInserito = dato.id;
+            this.ordine.reset();
+            this.spedito = true;
+          },
+          error => console.log("errore nell'inserimento"),
+          () => console.log("chiamata terminata")
+        )
     }
   }
 

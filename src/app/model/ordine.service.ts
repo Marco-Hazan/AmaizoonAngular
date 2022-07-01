@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CarrelloService } from './carrello.service';
+import { ItemCarrello } from './item-carrello';
 
 @Injectable()
 export class OrdineService {
 
+  id: number = 0;
   nome: string = '';
   cognome: string = '';
   citta: string = '';
@@ -18,7 +20,10 @@ export class OrdineService {
     this.carrello.clear();
   }
 
-  constructor(private carrello: CarrelloService) { }
+  constructor(public carrello: CarrelloService) { }
 
+  getDatiCarrello(): ItemCarrello[]{
+    return this.carrello.getAllItems();
+  }
    
 }

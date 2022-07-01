@@ -5,7 +5,7 @@ import { Prodotto } from './prodotto';
 @Injectable()
 export class CarrelloService {
 
-  private datiCarrello: ItemCarrello[] = [];
+  public datiCarrello: ItemCarrello[] = [];
 
   totale:number = 0;
   totaleProdotti = 0;

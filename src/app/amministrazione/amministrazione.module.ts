@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GestioneProdottiComponent } from './gestione-prodotti/gestione-prodotti.component';
-import { GestioneOrdiniComponent } from './gestione-ordini/gestione-ordini.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { GestioneOrdiniComponent } from './gestione-ordini/gestione-ordini.component';
+import { GestioneProdottiComponent } from './gestione-prodotti/gestione-prodotti.component';
 
 const rotteFiglie: Routes = [
   { path: "login", component: LoginComponent },

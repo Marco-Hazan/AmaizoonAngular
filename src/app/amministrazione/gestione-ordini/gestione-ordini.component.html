@@ -1,1 +1,28 @@
-<p>gestione-ordini works!</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Citta</th>
+        <th>Carrello</th>
+        <th>Azioni</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ordine of ordini">
+            <td>{{ordine.id}}</td>
+            <td>{{ordine.nome}}</td>
+            <td>{{ordine.cognome}}</td>
+            <td>{{ordine.citta}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let item of ordine.carrello.datiCarrello">
+                        {{item.prodotto.nome}} ({{item.quantita}},{{item.prodotto.prezzo}}€)
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click) = "rimuoviOrdine(ordine)">RIMUOVI</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
